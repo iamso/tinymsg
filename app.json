@@ -1,0 +1,12 @@
+{
+  "name": "tinymsg",
+  "description": "tiny real-time messaging server",
+  "keywords": [
+    "tiny",
+    "realtime",
+    "messaging",
+    "server"
+  ],
+  "repository": "https://github.com/iamso/tinymsg",
+  "success_url": "/client.js"
+}
