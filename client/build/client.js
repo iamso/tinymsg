@@ -1,3 +1,11 @@
+/*!
+ * tiny-msg-client - Version 0.2.0
+ * client for tiny real-time messaging server
+ * Author: Steve Ottoz <so@dev.so>
+ * Build date: 2016-08-02
+ * Copyright (c) 2016 Steve Ottoz
+ * Released under the MIT license
+ */
 
 ;(function (root, factory) {
   'use strict';
