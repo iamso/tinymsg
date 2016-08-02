@@ -11,6 +11,6 @@ module.exports = {
     src: [
       'src/client.js'
     ],
-    dest: 'client.js'
+    dest: 'build/client.js'
   }
 };

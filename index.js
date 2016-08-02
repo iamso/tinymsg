@@ -8,7 +8,8 @@ var port = process.env.PORT || 7777;
 
 var ejs = require('ejs');
 var fs = require('fs');
-var client = fs.readFileSync(__dirname + '/client/client.js','utf8');
+var client = fs.readFileSync(__dirname + '/client/build/client.js','utf8');
+var clientMin = fs.readFileSync(__dirname + '/client/build/client.min.js','utf8');
 
 var channels = {};
 
@@ -16,6 +17,11 @@ app.all(/^\/client(\.js)?/i, function(req, res) {
   res.header('Cache-Control', 'public, max-age=2592000');
   res.contentType('application/javascript');
   res.send(ejs.render(client, {url: (req.headers['x-forwarded-proto'] === 'https' ? 'wss' : 'ws') + '://' + req.get('host')}));
+});
+app.all(/^\/client\.min(\.js)?/i, function(req, res) {
+  res.header('Cache-Control', 'public, max-age=2592000');
+  res.contentType('application/javascript');
+  res.send(ejs.render(clientMin, {url: (req.headers['x-forwarded-proto'] === 'https' ? 'wss' : 'ws') + '://' + req.get('host')}));
 });
 
 app.use(function (req, res) {

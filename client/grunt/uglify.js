@@ -13,7 +13,7 @@ module.exports = {
     options: {
       banner: '<%= banner %>'
     },
-    src: ['client.js'],
-    dest: 'client.js'
+    src: ['build/client.js'],
+    dest: 'build/client.min.js'
   }
 };
