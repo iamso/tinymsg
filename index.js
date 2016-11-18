@@ -8,16 +8,14 @@ const port = process.env.PORT || 7777;
 
 const ejs = require('ejs');
 const fs = require('fs');
-const clients = {
-  'client.js': fs.readFileSync(`${__dirname}/client/build/embed/client.js`,'utf8'),
-  'client.min.js': fs.readFileSync(`${__dirname}/client/build/embed/client.min.js`,'utf8'),
-  'client.next.js': fs.readFileSync(`${__dirname}/client/build/embed/client.next.js`,'utf8'),
-  // 'client.next.min.js': fs.readFileSync(`${__dirname}/client/build/embed/client.next.min.js`,'utf8'),
-  // 'client.babel.js': fs.readFileSync(`${__dirname}/client/build/embed/client.babel.js`,'utf8'),
-  // 'client.babel.min.js': fs.readFileSync(`${__dirname}/client/build/embed/client.babel.min.js`,'utf8'),
-}
 
 const channels = {};
+
+const clientsBase = `${__dirname}/client/build/embed/`;
+const clients = {};
+fs.readdirSync(clientsBase).forEach(file => {
+  clients[file] = fs.readFileSync(`${clientsBase}${file}`, 'utf-8');
+});
 
 app.all('/:client', (req, res, next) => {
   const client = clients[req.params.client];
