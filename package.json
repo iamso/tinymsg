@@ -1,13 +1,13 @@
 {
   "name": "tiny-msg",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "tiny real-time messaging server",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "engines": {
-    "node": "6.x.x"
+    "node": "7.x.x"
   },
   "author": "Steve Ottoz <so@dev.so>",
   "license": "MIT",
