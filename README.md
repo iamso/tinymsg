@@ -7,15 +7,13 @@ Tiny real-time messaging server.
 ### Dokku, Heroku etc.
 Clone the repo and push to Dokku, Heroku etc.
 
-Or just press the button below.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/iamso/tinymsg)
+*Unfortunately I had to remove the Heroku deploy button, because it doesn't work wit git submodules.*
 
 ### Run locally
-Clone or download the repo. Then run the following commands:
+Clone the repo by running the following commands:
 
 ```bash
-cd path/to/repo
+git clone --recursive https://github.com/iamso/tinymsg.git
 npm install
 npm start
 ```
@@ -27,11 +25,11 @@ To edit/recompile the client run the following commands:
 ```bash
 cd path/to/repo/client
 npm install
-grunt
+gulp
 ```
-**Note:** `grunt-cli` needs to be installed globally.
+**Note:** `gulp-cli` must be installed globally.
 
-To compile the dist version run `grunt dist`.
+To compile the dist version run `gulp dist`.
 
 
 
@@ -64,8 +62,28 @@ msg.send({key: 'value'}); // send an object
 msg.send([1,2,3]); // send an array   
 ```
 
+## HTTP interface
+
+You can also send messages to a channel through http requests.
+
+#### GET
+
+Send the message as query parameter:
+
+```
+http(s)://domain.tld/send/{channelname}?message=blabla
+```
+
+#### POST
+
+Send the message as post data or raw body:
+
+```
+http(s)://domain.tld/send/{channelname}
+```
+
 ## License
-Copyright (c) 2016 Steve Ottoz
+Copyright (c) 2017 Steve Ottoz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
