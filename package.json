@@ -12,8 +12,13 @@
   "author": "Steve Ottoz <so@dev.so>",
   "license": "MIT",
   "dependencies": {
-    "ejs": "^2.4.1",
-    "express": "^4.13.4",
-    "ws": "^1.0.1"
+    "body-parser": "^1.17.2",
+    "compression": "^1.6.2",
+    "connect-multiparty": "^2.0.0",
+    "cors": "^2.8.3",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "helmet": "^3.6.1",
+    "ws": "^3.0.0"
   }
 }
