@@ -45,16 +45,16 @@ To compile the dist version run `gulp dist`.
 ### Create client instance
 
 ```javascript
-'use strict';
 
-var msg = new Msg('channelname', onMessage, onError);
+const msg = new Msg('channelname');
 
-function onMessage(data) {
-  // do something
-}
-function onError(e) {
-  // do something
-}
+msg
+  .on('message', (e, data) => {
+    // do something
+  })
+  .on('error', (e) => {
+    // do something
+  });
 
 // sending a message
 msg.send('string'); // send a string
