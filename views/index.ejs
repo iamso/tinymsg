@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tinyMsg test</title>
+</head>
+<body>
+  <form action="" method="post" class="form">
+    <input type="text" class="input" placeholder="type here">
+    <button type="submit">send</button>
+  </form>
+  <ul class="messages"></ul>
+
+  <script type="module">
+    import Msg from '<%-url%>/client.next.js';
+
+    const msg = new Msg('tinymsg-test');
+    const messages = document.querySelector('.messages');
+    const form = document.querySelector('.form');
+    const input = document.querySelector('.input');
+
+    msg
+      .on('message', (e, data) => {
+        if (data && Array.isArray(data.messages)) {
+          for (let message of data.messages) {
+            const li = document.createElement('li');
+            li.textContent = message;
+            messages.appendChild(li);
+          }
+        }
+      })
+      .on('error', (e) => {
+        console.error('Something went wrong!')
+      });
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      msg.send({messages: [input.value]});
+      form.reset();
+      input.focus();
+      return false;
+    });
+  </script>
+</body>
+</html>

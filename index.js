@@ -70,7 +70,7 @@ app.all('/send/:channel', (req, res, next) => {
 });
 
 app.use((req, res) => {
-  res.render('index.ejs');
+  res.render('index.ejs', {url: req.header.referer});
 });
 
 wss.on('connection', (ws, req) => {
