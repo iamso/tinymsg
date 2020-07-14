@@ -90,6 +90,10 @@ wss.on('connection', (ws, req) => {
     });
   });
 
+  ws.on('error', (err) => {
+    console.log(err.stack);
+  });
+
   ws.on('close', () => {
     channels[channel].splice(channels[channel].indexOf(ws), 1);
   });
