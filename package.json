@@ -1,6 +1,6 @@
 {
   "name": "tiny-msg",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "tiny real-time messaging server",
   "main": "index.js",
   "scripts": {
